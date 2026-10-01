@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Eventum.Api/Eventum.Api.csproj" />
+    <Project Path="src/Eventum.Application/Eventum.Application.csproj" />
+    <Project Path="src/Eventum.Domain/Eventum.Domain.csproj" />
+    <Project Path="src/Eventum.Infrastructure/Eventum.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Eventum.IntegrationTests/Eventum.IntegrationTests.csproj" />
+    <Project Path="tests/Eventum.UnitTests/Eventum.UnitTests.csproj" />
+  </Folder>
+</Solution>

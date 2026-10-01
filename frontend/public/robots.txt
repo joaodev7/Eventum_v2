@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Allow: /evento/
+Allow: /pricing
+Allow: /auth
+Disallow: /admin/
+Disallow: /superadmin/
+Disallow: /convite/
+Disallow: /reconfirmar/
+
+Sitemap: https://eventum.com.br/sitemap.xml

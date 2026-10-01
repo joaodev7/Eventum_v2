@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: eventum-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: eventum_user
+      POSTGRES_PASSWORD: eventum_password
+      POSTGRES_DB: eventum_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U eventum_user -d eventum_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: eventum-api
+    restart: always
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=eventum_db;Username=eventum_user;Password=eventum_password
+      - Jwt__Secret=EventumSuperSecretKeyForDevelopmentPurposes2026!
+      - Jwt__Issuer=EventumApi
+      - Jwt__Audience=EventumClient
+      - Jwt__AccessTokenExpirationMinutes=60
+      - Jwt__RefreshTokenExpirationDays=30
+    ports:
+      - "5000:8080"
+
+volumes:
+  postgres_data:

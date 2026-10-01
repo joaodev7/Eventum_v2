@@ -1,0 +1,54 @@
+# ==========================================
+# Root .gitignore for Eventum Monorepo
+# ==========================================
+
+# .NET & Visual Studio / Rider
+bin/
+obj/
+**/bin/
+**/obj/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.vs/
+.vscode/
+.idea/
+*.userprefs
+
+# Node & Frontend
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+dist-ssr/
+**/dist-ssr/
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment & Secrets (Never commit production credentials)
+.env
+**/.env
+.env.local
+**/.env.local
+.env.*.local
+**/.env.*.local
+*.pem
+*.key
+
+# Preserve example environment templates
+!.env.example
+!**/.env.example
+!.env.production
+!**/.env.production
+
+# Operating System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Agent & CLI caches
+.agent/

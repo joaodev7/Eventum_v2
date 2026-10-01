@@ -1,0 +1,284 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Modern Event Color Palette */
+    /* Azul Petróleo - Confiança */
+    /* Terracota Suave - Humanidade */
+    /* Off-White - Limpeza */
+    
+    --background: 40 20% 97%;
+    --foreground: 195 35% 18%;
+
+    --card: 40 15% 98%;
+    --card-foreground: 195 35% 18%;
+
+    --popover: 40 15% 98%;
+    --popover-foreground: 195 35% 18%;
+
+    /* Azul Petróleo Primary */
+    --primary: 195 45% 28%;
+    --primary-foreground: 40 20% 97%;
+
+    /* Terracota Suave Secondary */
+    --secondary: 18 45% 92%;
+    --secondary-foreground: 18 50% 30%;
+
+    /* Terracota Accent */
+    --accent: 18 55% 75%;
+    --accent-foreground: 18 60% 25%;
+
+    --muted: 40 15% 93%;
+    --muted-foreground: 195 15% 45%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 195 15% 88%;
+    --input: 195 15% 88%;
+    --ring: 195 45% 28%;
+
+    --radius: 0.75rem;
+
+    /* Custom Theme Variables */
+    --petrol: 195 45% 28%;
+    --petrol-light: 195 35% 45%;
+    --terracotta: 18 55% 65%;
+    --terracotta-light: 18 45% 85%;
+    --offwhite: 40 20% 97%;
+    --offwhite-cream: 35 25% 94%;
+    
+    /* Legacy compatibility */
+    --champagne: 35 40% 80%;
+    --champagne-light: 40 35% 92%;
+    --ivory: 40 25% 96%;
+    --sage: 195 25% 75%;
+    --sage-light: 195 20% 90%;
+    --dusty-rose: 18 45% 80%;
+    --dusty-rose-light: 18 40% 92%;
+    --gold: 18 55% 55%;
+    --gold-dark: 18 60% 40%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(40 20% 97%), hsl(195 25% 95%), hsl(18 35% 96%));
+    --gradient-gold: linear-gradient(135deg, hsl(195 45% 28%), hsl(195 40% 35%));
+    --gradient-sage: linear-gradient(135deg, hsl(18 45% 90%), hsl(18 40% 85%));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -5px hsl(195 45% 28% / 0.12);
+    --shadow-elegant: 0 10px 40px -10px hsl(195 45% 28% / 0.18);
+    --shadow-card: 0 2px 15px -3px hsl(195 35% 18% / 0.08);
+
+    /* Sidebar */
+    --sidebar-background: 40 15% 98%;
+    --sidebar-foreground: 195 35% 20%;
+    --sidebar-primary: 195 45% 28%;
+    --sidebar-primary-foreground: 40 20% 97%;
+    --sidebar-accent: 18 45% 92%;
+    --sidebar-accent-foreground: 18 50% 30%;
+    --sidebar-border: 195 15% 90%;
+    --sidebar-ring: 195 45% 28%;
+  }
+
+  .dark {
+    --background: 195 25% 8%;
+    --foreground: 40 20% 95%;
+
+    --card: 195 20% 12%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 195 20% 12%;
+    --popover-foreground: 40 20% 95%;
+
+    --primary: 195 40% 50%;
+    --primary-foreground: 195 25% 8%;
+
+    --secondary: 18 35% 20%;
+    --secondary-foreground: 18 40% 85%;
+
+    --accent: 18 40% 30%;
+    --accent-foreground: 18 35% 90%;
+
+    --muted: 195 15% 18%;
+    --muted-foreground: 40 15% 60%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 195 15% 20%;
+    --input: 195 15% 20%;
+    --ring: 195 40% 50%;
+
+    --petrol: 195 40% 40%;
+    --petrol-light: 195 35% 50%;
+    --terracotta: 18 50% 50%;
+    --terracotta-light: 18 40% 30%;
+    --offwhite: 40 15% 15%;
+    --offwhite-cream: 35 15% 18%;
+    
+    --champagne: 35 35% 35%;
+    --champagne-light: 40 25% 20%;
+    --ivory: 40 15% 15%;
+    --sage: 195 15% 35%;
+    --sage-light: 195 15% 22%;
+    --dusty-rose: 18 30% 35%;
+    --dusty-rose-light: 18 25% 22%;
+    --gold: 18 50% 50%;
+    --gold-dark: 18 55% 35%;
+
+    --sidebar-background: 195 20% 10%;
+    --sidebar-foreground: 40 20% 90%;
+    --sidebar-primary: 195 40% 50%;
+    --sidebar-primary-foreground: 195 25% 8%;
+    --sidebar-accent: 18 35% 18%;
+    --sidebar-accent-foreground: 18 40% 85%;
+    --sidebar-border: 195 15% 18%;
+    --sidebar-ring: 195 40% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    @apply font-medium tracking-wide;
+  }
+}
+
+@layer components {
+  .font-serif {
+    font-family: 'Cormorant Garamond', serif;
+  }
+  
+  .font-sans {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(195 45% 28%), hsl(195 35% 40%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-terracotta {
+    background: linear-gradient(135deg, hsl(18 55% 55%), hsl(18 60% 45%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gradient-gold {
+    background: var(--gradient-gold);
+  }
+
+  .bg-gradient-sage {
+    background: var(--gradient-sage);
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
+}
